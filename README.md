@@ -10,6 +10,11 @@ This Python script monitors your clipboard for text copied using Cmd+C (Mac) or 
 *   **Cross-Platform**: Works on macOS, Windows, and Linux.
 *   **Configurable Model**: Specify the Ollama model to use via command-line argument.
 *   **Status Logging**: Logs activity and errors to `ollama_clipboard_assistant.log`.
+*   **System Tray Integration**: Runs quietly in your system tray.
+*   **Visual State Indicators**: The tray icon changes to show the current state:
+    *   **Idle (grey)**: Ready for input
+    *   **Processing (blue with animated dots)**: Currently processing clipboard
+    *   **Error (red)**: Error connecting to Ollama or processing clipboard
 *   **Customizable Ollama URL**: The Ollama server URL can be changed in the script.
 
 ## Requirements
@@ -78,10 +83,21 @@ When the copy shortcut (Cmd+C or Ctrl+C, depending on the OS) is detected:
 
 The `Ctrl+Esc` key combination is used to gracefully shut down the script.
 
-## Contributing
+## Building an Executable
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any bugs or feature requests.
+You can build a standalone executable using PyInstaller:
 
-## License
+1. Install PyInstaller:
 
-This project is open-source. You can consider adding a license file (e.g., MIT License).
+```bash
+pip install pyinstaller
+```
+
+2. Create the executable:
+
+```bash
+pyinstaller --onefile --windowed --name "ExamCheaterPro" exam-cheater.py
+```
+
+The `--windowed` flag ensures no console window appears when running the executable.
+The built executable will be in the `dist` folder.
