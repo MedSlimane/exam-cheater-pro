@@ -1,2 +1,6 @@
 /venv/
 ollama_clipboard_assistant.log
+/.eggs/
+/build/
+/dist/
+/AppIcon.iconset/
